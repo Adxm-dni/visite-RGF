@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!-- Indique au navigateur qu'il s'agit d'une page HTML5 -->
+
+<html lang="fr">
+<!-- Début de la page web en français -->
+
+<head>
+
+    <meta charset="UTF-8">
+    <!-- Permet d'afficher correctement les accents -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Adapte l'affichage aux téléphones et tablettes -->
+
+    <title>Entrée - Visite virtuelle RGF</title>
+    <!-- Texte affiché dans l'onglet du navigateur -->
+
+    <style>
+
+        * {
+            margin: 0;
+            /* Supprime toutes les marges par défaut */
+
+            padding: 0;
+            /* Supprime tous les espaces intérieurs par défaut */
+
+            box-sizing: border-box;
+            /*
+            Les tailles width et height incluent les bordures.
+            Plus simple pour calculer les dimensions.
+            */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            /* Police utilisée sur le site */
+
+            overflow: hidden;
+            /*
+            Empêche l'apparition des barres de défilement
+            horizontales et verticales.
+            */
+        }
+
+        .container {
+            position: relative;
+            /*
+            Sert de référence pour placer les éléments
+            en position absolue (porte, boutons, etc.).
+            */
+
+            width: 100vw;
+            /* Largeur = 100% de la fenêtre */
+
+            height: 100vh;
+            /* Hauteur = 100% de la fenêtre */
+        }
+
+        .photo {
+            width: 100%;
+            /* L'image prend toute la largeur */
+
+            height: 100%;
+            /* L'image prend toute la hauteur */
+
+            object-fit: cover;
+            /*
+            Remplit l'écran sans déformer l'image.
+            Certaines parties peuvent être recadrées.
+            */
+
+            display: block;
+            /*
+            Supprime les petits espaces blancs
+            parfois présents sous les images.
+            */
+        }
+
+        /* Zone cliquable de la porte */
+
+        .porte {
+            position: absolute;
+            /*
+            Permet de placer précisément la zone
+            sur la porte.
+            */
+
+            left: 44%;
+            /*
+            Distance depuis la gauche.
+            44% de la largeur de l'écran.
+            */
+
+            top: 33%;
+            /*
+            Distance depuis le haut.
+            33% de la hauteur de l'écran.
+            */
+
+            width: 16%;
+            /*
+            Largeur de la zone cliquable.
+            */
+
+            height: 45%;
+            /*
+            Hauteur de la zone cliquable.
+            */
+
+            cursor: pointer;
+            /*
+            La souris devient une main lorsque
+            l'utilisateur passe dessus.
+            */
+        }
+
+        /* Cercle bleu qui apparaît au survol */
+
+        .porte::after {
+
+            content: "➜";
+            /*
+            Flèche affichée dans le cercle.
+            */
+
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+            /*
+            Place le cercle au centre
+            de la zone cliquable.
+            */
+
+            transform: translate(-50%, -50%) scale(0);
+            /*
+            Centre parfaitement le cercle
+            et le rend invisible au départ.
+            */
+
+            width: 90px;
+            height: 90px;
+            /* Taille du cercle */
+
+            border-radius: 50%;
+            /* Transforme le carré en cercle */
+
+            background: rgba(0,120,215,0.9);
+            /* Couleur bleue transparente */
+
+            color: white;
+            /* Couleur de la flèche */
+
+            font-size: 45px;
+            /* Taille de la flèche */
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /*
+            Centre la flèche dans le cercle.
+            */
+
+            transition: 0.25s;
+            /*
+            Animation fluide.
+            */
+
+            box-shadow: 0 0 25px #0078D7;
+            /*
+            Crée une lueur bleue autour du cercle.
+            */
+        }
+
+        .porte:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+            /*
+            Quand la souris passe sur la porte,
+            le cercle apparaît.
+            */
+        }
+
+        /* Bouton retour */
+
+        .bouton {
+            position: absolute;
+
+            bottom: 20px;
+            /*
+            20 pixels du bas de l'écran.
+            */
+
+            right: 20px;
+            /*
+            20 pixels du bord droit.
+            */
+
+            background-color: #0078D7;
+            /* Couleur bleue */
+
+            color: white;
+            /* Texte blanc */
+
+            border: none;
+            /* Pas de bordure */
+
+            border-radius: 10px;
+            /* Coins arrondis */
+
+            padding: 15px 30px;
+            /* Taille intérieure du bouton */
+
+            font-size: 20px;
+            /* Taille du texte */
+
+            cursor: pointer;
+            /* Main au survol */
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Contient toute la page -->
+
+        <img src="IMG_4398.jpeg" class="photo">
+        <!-- Photo de la porte d'entrée -->
+
+        <div class="porte"
+             onclick="window.location.href='couloir1.html'">
+        </div>
+
+        <!--
+        Zone invisible placée sur la porte.
+        Quand on clique :
+        ouverture de couloir1.html
+        -->
+
+        <button class="bouton"
+                onclick="window.location.href='index.html'">
+            Retour à l'accueil
+        </button>
+
+        <!--
+        Bouton bleu en bas à droite.
+        Retour vers la page d'accueil.
+        -->
+
+    </div>
+
+</body>
+
+</html>

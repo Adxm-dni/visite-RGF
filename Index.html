@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!-- Indique au navigateur qu'il s'agit d'une page HTML5 -->
+
+<html lang="fr">
+<!-- Début de la page web, langue française -->
+
+<head>
+<!-- Partie invisible de la page : paramètres, styles, titre -->
+
+    <meta charset="UTF-8">
+    <!-- Permet d'afficher correctement les accents et caractères spéciaux -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Adapte l'affichage aux téléphones et tablettes -->
+
+    <title>Visite virtuelle RGF Staffing IT France</title>
+    <!-- Texte affiché dans l'onglet du navigateur -->
+
+    <style>
+    /* Début du CSS : tout ce qui concerne l'apparence */
+
+        body {
+            margin: 0;
+            /* Supprime les marges blanches autour de la page */
+
+            height: 100vh;
+            /* La page prend toute la hauteur de l'écran */
+
+            background:
+            linear-gradient(
+                rgba(0,0,0,0.5),
+                rgba(0,0,0,0.5)
+            ),
+            url("17973908.jpg");
+            /*
+            Image de fond du site.
+            Le dégradé noir assombrit l'image pour rendre
+            le texte plus lisible.
+            */
+
+            background-size: cover;
+            /* L'image remplit tout l'écran */
+
+            background-position: center;
+            /* Centre l'image */
+
+            display: flex;
+            /* Active le système Flexbox */
+
+            justify-content: center;
+            /* Centre horizontalement le contenu */
+
+            align-items: center;
+            /* Centre verticalement le contenu */
+
+            font-family: Arial, sans-serif;
+            /* Police utilisée */
+
+            color: white;
+            /* Couleur du texte */
+        }
+
+        /* Logo en haut à droite */
+        .logo {
+            position: absolute;
+            /* Position libre sur la page */
+
+            top: 10px;
+            /* Distance par rapport au haut */
+
+            right: 10px;
+            /* Distance par rapport à la droite */
+
+            width: 300px;
+            /* Taille du logo */
+        }
+
+        /* Bloc contenant le titre, le texte et le bouton */
+        .contenu {
+            text-align: center;
+            /* Centre le texte */
+        }
+
+        h1 {
+            font-size: 48px;
+            /* Taille du titre */
+
+            margin-bottom: 10px;
+            /* Espace sous le titre */
+        }
+
+        p {
+            font-size: 20px;
+            /* Taille du paragraphe */
+
+            margin-bottom: 30px;
+            /* Espace sous le texte */
+        }
+
+        .bouton {
+            background-color: #0078D7;
+            /* Couleur bleue du bouton */
+
+            color: white;
+            /* Texte blanc */
+
+            padding: 15px 30px;
+            /* Espace intérieur du bouton */
+
+            border: none;
+            /* Supprime la bordure par défaut */
+
+            border-radius: 10px;
+            /* Coins arrondis */
+
+            font-size: 20px;
+            /* Taille du texte */
+
+            cursor: pointer;
+            /* Transforme la souris en main */
+
+            transition: 0.3s;
+            /* Animation fluide */
+        }
+
+        .bouton:hover {
+            transform: scale(1.05);
+            /* Le bouton grossit légèrement au survol */
+        }
+
+    </style>
+
+</head>
+
+<body>
+<!-- Partie visible de la page -->
+
+    <!-- Logo de l'entreprise -->
+    <img src="Logo-RGF.png" alt="Logo RGF" class="logo">
+
+    <!-- Bloc central -->
+    <div class="contenu">
+
+        <h1>Visite virtuelle des locaux</h1>
+        <!-- Grand titre principal -->
+
+        <p>
+            Découvrez les espaces de travail de RGF Staffing IT France
+            à travers une visite interactive.
+        </p>
+        <!-- Texte de présentation -->
+
+        <button class="bouton"
+                onclick="window.location.href='visite.html'">
+            Visiter les locaux
+        </button>
+
+        <!--
+        Bouton bleu.
+        Quand on clique dessus :
+        ouverture de la page visite.html
+        -->
+
+    </div>
+
+</body>
+
+</html>
