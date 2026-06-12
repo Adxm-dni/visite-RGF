@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo 8 - Visite virtuelle RGF</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* 🌟 entrée */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(1.03);
+        filter: blur(6px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+/* 🌟 sortie */
+.exit {
+    animation: exitAnim 0.7s ease-in-out forwards;
+}
+
+@keyframes exitAnim {
+    to {
+        opacity: 0;
+        transform: scale(1.1);
+        filter: blur(10px);
+    }
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    animation: zoomBg 12s ease-in-out infinite alternate;
+}
+
+/* effet vivant léger */
+@keyframes zoomBg {
+    from { transform: scale(1); }
+    to { transform: scale(1.04); }
+}
+
+/* 🌟 BOUTON CENTRAL VR */
+.centre {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    width: 90px;
+    height: 90px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+/* cercle */
+.centre::after {
+    content: "➜";
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+
+    width: 75px;
+    height: 75px;
+
+    border-radius: 50%;
+    background: rgba(0,120,215,0.95);
+
+    color: white;
+    font-size: 36px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 0 10px rgba(0,120,215,0.6),
+        0 0 25px rgba(0,120,215,0.4);
+}
+
+/* apparition */
+.centre:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* pulse VR */
+.centre::before {
+    content: "";
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    width: 90px;
+    height: 90px;
+
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+    border: 2px solid rgba(0,120,215,0.35);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+/* hover global */
+.centre:hover {
+    filter: brightness(1.2);
+}
+
+/* 🌟 BOUTONS */
+.precedent, .bouton {
+    position: absolute;
+    bottom: 20px;
+
+    background-color: #0078D7;
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 15px 30px;
+    font-size: 20px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.precedent { left: 20px; }
+.bouton { right: 20px; }
+
+.precedent:hover,
+.bouton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,120,215,0.5);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <img src="photo8.jpeg" class="photo">
+
+    <!-- précédent -->
+    <button class="precedent"
+            onclick="go('photo6.html')">
+        Précédent
+    </button>
+
+    <!-- centre -->
+    <div class="centre"
+         onclick="go('photo9.html')"></div>
+
+    <!-- retour -->
+    <button class="bouton"
+            onclick="go('index.html')">
+        Retour à l'accueil
+    </button>
+
+</div>
+
+<script>
+function go(page) {
+    document.body.classList.add("exit");
+
+    setTimeout(() => {
+        window.location.href = page;
+    }, 650);
+}
+</script>
+
+</body>
+
+</html>
